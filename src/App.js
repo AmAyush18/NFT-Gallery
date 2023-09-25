@@ -24,9 +24,11 @@ const App = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="flex item-center justify-center text-3xl font-bold mb-4">Parallel Alpha NFT Gallery 🚀</h1>
-      <Gallery nfts={nfts} />
+    <div className="bg-neutral-300">
+      <div className="container mx-auto p-4">
+        <h1 className="flex item-center justify-center text-3xl font-bold mb-4">Parallel Alpha NFT Gallery 🚀</h1>
+        <Gallery nfts={nfts} />
+      </div>
     </div>
   );
 }
