@@ -1,23 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+import {useState, useEffect} from 'react';
+import Gallery from './components/Gallery';
+
+import { NFTCollection } from './utils/NFTCollection';
+import { fetchNFTCollection } from './utils/fetchNFTCollection';
+
+const App = () => {
+
+  const [response, setResponse] = useState({});
+  const [nfts, setNfts] = useState([]);
+
+  useEffect( () => {
+
+    const fetchData = async () => {
+      try {
+        const data = await fetchNFTCollection();
+        setNfts(data.nfts);
+      } catch (error) {
+        console.error('Error fetching NFT collection:', error);
+      }
+    };
+
+    fetchData(); // Call the async function to fetch data
+    console.log(nfts)
+
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container mx-auto p-4">
+      <h1 className="flex item-center justify-center text-3xl font-bold mb-4">Parallel Alpha NFT Gallery 🚀</h1>
+      <Gallery nfts={nfts} />
     </div>
   );
 }
