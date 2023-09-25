@@ -7,7 +7,6 @@ import { fetchNFTCollection } from './utils/fetchNFTCollection';
 
 const App = () => {
 
-  const [response, setResponse] = useState({});
   const [nfts, setNfts] = useState([]);
 
   useEffect( () => {
