@@ -18,11 +18,11 @@ export const fetchNFTCollection = async () => {
       });
 
     if (!response.ok) {
-    throw new Error(`Request failed with status ${response.status}`);
-  }
+      throw new Error(`Request failed with status ${response.status}`);
+    }
 
     const data = await response.json();
-    console.log(data);
+    return data;
   } 
   catch (error) {
     console.error('Error:', error.message);

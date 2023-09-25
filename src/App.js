@@ -3,7 +3,6 @@ import './App.css';
 import {useState, useEffect} from 'react';
 import Gallery from './components/Gallery';
 
-import { NFTCollection } from './utils/NFTCollection';
 import { fetchNFTCollection } from './utils/fetchNFTCollection';
 
 const App = () => {
@@ -23,8 +22,6 @@ const App = () => {
     };
 
     fetchData(); // Call the async function to fetch data
-    console.log(nfts)
-
   }, []);
 
   return (
